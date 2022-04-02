@@ -86,8 +86,12 @@ WSGI_APPLICATION = 'inventory.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'db_inventory',
+        'USER': 'root',
+        'PASSWORD': 'Aeym1998',
+        'HOST': 'inventory-db.cnp0rildlbfp.us-east-1.rds.amazonaws.com',
+        'PORT': 3306
     }
 }
 

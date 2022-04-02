@@ -92,8 +92,8 @@ DATABASES = {
         'PASSWORD': 'Aeym1998',
         'HOST': 'inventory-db.cnp0rildlbfp.us-east-1.rds.amazonaws.com',
         'PORT': 3306,
-        'OPTIONS':{
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLE'"
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
     }
 }

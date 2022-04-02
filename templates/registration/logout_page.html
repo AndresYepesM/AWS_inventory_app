@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="container">
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Good bye!</strong> i see you later :) 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <a href="{% url 'home' %}" class="btn btn-primary text-dark">Home</a> 
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="container">
+
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Holy guacamole!</strong> Your your request was  succsesfully 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table_responsive">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Detail</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Option</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if product %}
+                {% for items in product %}
+                    <tr>
+                        <th scope="row">{{items.id}}</th>
+                        <td><a href="{% url 'Product:item_review' pk=items.id%}">{{items.name}}</a></td>
+                        <td>{{ items.detail }}</td>
+                        <td>{{ items.price }}</td>
+                        <td>{{ items.quantity }}</td>
+                        <td>
+                          <a href="{% url 'Product:item_update' pk=items.id %}" class="btn btn-secondary">Edit</a>
+                          <a href="{% url 'Product:delete' pk=items.id %}" class="btn btn-danger">Delete</a>
+                    </tr>
+                {% endfor %}
+              {% else %}
+              <tr>
+                <div class="alert alert-danger" role="alert">
+                  No product on the inventory.
+                </div>
+              </tr>
+              {% endif %}
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+
+      <a class="btn btn-danger" href="{% url 'logout' %}"> 
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
+          <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
+        </svg> 
+
+        Logout 
+      </a>
+
+
+      <a href="{% url 'Product:item_add' %}" class="btn btn-success text-dark">Add product</a>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+

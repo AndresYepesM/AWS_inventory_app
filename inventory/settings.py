@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-fx-xy4)nzy5j7q3tzro+2k9e^59k8buz=nxfaroy$kb8#=oio0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['ec2-44-200-163-31.compute-1.amazonaws.com ', '44.200.163.31']
+ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ['ec2-44-200-163-31.compute-1.amazonaws.com ', '44.200.163.31']
 
 
 # Application definition
@@ -84,17 +84,24 @@ WSGI_APPLICATION = 'inventory.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'db_inventory',
+#         'USER': 'root',
+#         'PASSWORD': 'Aeym1998',
+#         'HOST': 'inventory-db.cnp0rildlbfp.us-east-1.rds.amazonaws.com',
+#         'PORT': 3306,
+#         'OPTIONS': {
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+#         }
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db_inventory',
-        'USER': 'root',
-        'PASSWORD': 'Aeym1998',
-        'HOST': 'inventory-db.cnp0rildlbfp.us-east-1.rds.amazonaws.com',
-        'PORT': 3306,
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -135,7 +142,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = "static/staticfiles"
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

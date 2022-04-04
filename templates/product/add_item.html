@@ -9,8 +9,9 @@
                 <div class="card-body">
                     <h2>New product form.</h2>
 
-                    <form method="post">
+                    <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
+                        {{ form.media }}
                         {{ form|crispy }}
                         <button type="submit" class="btn btn-primary">Add new product</button>
                         <a href="{% url 'Product:inventory_list' %}" class="btn btn-secondary">Back to inventory list</a>

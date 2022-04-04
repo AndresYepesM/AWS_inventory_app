@@ -37,4 +37,4 @@ urlpatterns = [
     # re_path(r'^item/delete/(?P<pk>\d+)$', ItemDelete.as_view(), name='delete'),
 
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

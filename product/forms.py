@@ -1,4 +1,5 @@
 from django import forms
+from PIL import ImageFilter
 from product.models import Items
 
 class ItemForm(forms.ModelForm):
@@ -7,6 +8,7 @@ class ItemForm(forms.ModelForm):
 
         fields = [
             'name',
+            'img',
             'detail',
             'price',
             'quantity'
@@ -15,6 +17,7 @@ class ItemForm(forms.ModelForm):
         lables = {
 
             'name':'Name of the product',
+            'img': 'photo of the product',
             'detail':'Description of the product',
             'price':'Price of the product',
             'quantity': 'How many do you have available?'

@@ -1,4 +1,5 @@
 {% extends 'index.html' %}
+{% load static %}
 {% block content %}
 
 <div class="container">
@@ -27,13 +28,22 @@
                 {% for items in product %}
                     <tr>
                         <th scope="row">{{items.id}}</th>
+                        <th scope="row">
+                          {% if items.img %}
+                            <img src="{{ items.img.url }}" width="50" height="50">
+                          {% else %}
+                            <img src="/static/img/no_product.png" width="50" height="50">
+                          {% endif %}
+                        </th>
                         <td><a href="{% url 'Product:item_review' pk=items.id%}">{{items.name}}</a></td>
                         <td>{{ items.detail }}</td>
                         <td>{{ items.price }}</td>
                         <td>{{ items.quantity }}</td>
                         <td>
                           <a href="{% url 'Product:item_update' pk=items.id %}" class="btn btn-secondary">Edit</a>
+
                           <a href="{% url 'Product:delete' pk=items.id %}" class="btn btn-danger">Delete</a>
+                        </td>
                     </tr>
                 {% endfor %}
               {% else %}

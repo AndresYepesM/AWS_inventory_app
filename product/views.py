@@ -1,8 +1,16 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from __future__ import unicode_literals
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from django.template import loader
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.models import User
+from django.urls import reverse
 from django.http import HttpResponseRedirect, HttpResponse
-from django.urls import reverse, reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+from django.views import generic
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
+from django.urls import reverse_lazy
 from product.models import Items
 from product.forms import ItemForm
 

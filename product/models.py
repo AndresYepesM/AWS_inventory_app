@@ -1,13 +1,15 @@
 from django.db import models
 from django.urls import reverse_lazy
+from PIL import Image
 
 # Create your models here.
 
 class Items(models.Model):
     name = models.CharField(max_length = 35, verbose_name='Item name')
-    price =  models.IntegerField()
-    detail = models.TextField()
-    quantity = models.IntegerField()
+    img = models.ImageField(upload_to='static/img/upload/product', blank=True)
+    price =  models.IntegerField( blank=True)
+    detail = models.TextField( blank=True)
+    quantity = models.IntegerField( blank=True)
     class Meta:
         ordering=['id']
         verbose_name_plural = 'Products'
